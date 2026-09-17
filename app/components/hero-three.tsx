@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
 import * as THREE from 'three';
 import { MARK_BRIDGES, MARK_EDGES, MARK_NODES } from '../lib/brand-network';
 
@@ -97,14 +96,16 @@ export function HeroThree({ reducedMotion }: HeroThreeProps) {
     const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
     scene.add(lines);
 
-    const animation = { progress: 0 };
-    const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    intro
-      .to(animation, { progress: 1, duration: 2.4 })
-      .to(camera.position, { z: 5.2, duration: 2.4 }, 0)
-      .to(lineMaterial, { opacity: 0.33, duration: 1.1 }, 1.15)
-      .fromTo('[data-hero-lockup]', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.85 }, 1.72)
-      .fromTo('[data-hero-copy]', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.9 }, 1.95);
+    const introAnimations = [
+      document.querySelector<HTMLElement>('[data-hero-lockup]')?.animate(
+        [{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 850, delay: 1700, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' },
+      ),
+      document.querySelector<HTMLElement>('[data-hero-copy]')?.animate(
+        [{ opacity: 0, transform: 'translateY(20px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 900, delay: 1950, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' },
+      ),
+    ];
 
     const updateSize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -115,11 +116,14 @@ export function HeroThree({ reducedMotion }: HeroThreeProps) {
     };
     updateSize();
 
-    const clock = new THREE.Clock();
+    const startTime = performance.now();
     renderer.setAnimationLoop(() => {
       if (!active || disposed) return;
-      const elapsed = clock.getElapsedTime();
-      const p = animation.progress;
+      const elapsed = (performance.now() - startTime) / 1000;
+      const rawProgress = Math.min(elapsed / 2.4, 1);
+      const p = 1 - Math.pow(1 - rawProgress, 3);
+      camera.position.z = THREE.MathUtils.lerp(7.4, 5.2, p);
+      lineMaterial.opacity = Math.max(0, Math.min((rawProgress - 0.46) * 0.65, 0.33));
       const attribute = geometry.getAttribute('position') as THREE.BufferAttribute;
       const array = attribute.array as Float32Array;
       for (let i = 0; i < count; i += 1) {
@@ -135,20 +139,18 @@ export function HeroThree({ reducedMotion }: HeroThreeProps) {
 
     const observer = new IntersectionObserver(([entry]) => {
       active = entry.isIntersecting && !document.hidden;
-      if (active) clock.start();
     }, { threshold: 0.01 });
     observer.observe(canvas);
 
     const onVisibility = () => { active = !document.hidden && canvas.getBoundingClientRect().bottom > 0; };
-    const resizeObserver = new ResizeObserver(updateSize);
-    resizeObserver.observe(canvas);
+    window.addEventListener('resize', updateSize, { passive: true });
     document.addEventListener('visibilitychange', onVisibility);
 
     return () => {
       disposed = true;
-      intro.kill();
+      introAnimations.forEach((animation) => animation?.cancel());
       observer.disconnect();
-      resizeObserver.disconnect();
+      window.removeEventListener('resize', updateSize);
       document.removeEventListener('visibilitychange', onVisibility);
       renderer.setAnimationLoop(null);
       geometry.dispose();

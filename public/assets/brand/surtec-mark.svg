@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 320" role="img" aria-labelledby="title">
+  <title id="title">Isotipo de SurTec</title>
+  <g fill="none" stroke="#0066CC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M72 34H188M72 34 34 82M72 34v57m0-57 58 34m58-34-58 34m58-34v57m0-57 38 48M34 82l38 9m-38-9v50m38-41 58-23m-58 23-38 41m38-41v41m58-64 58 23m0 0 38-9M34 132h38m-38 0 154 50m-116-50 154 34m-38 16h38m-38 0v44m0-44 38-16m0 0v52M72 212 34 226m38-14 58 32m-58-32v74m-38-60 96 18m58-18-58 18m58-18 38-8m-38 8v60m38-68v68m-96-42-58 42m58-42 58 42M72 286h116"/>
+  </g>
+  <g fill="#0066CC">
+    <circle cx="72" cy="34" r="11"/><circle cx="188" cy="34" r="11"/><circle cx="34" cy="82" r="11"/>
+    <circle cx="72" cy="91" r="11"/><circle cx="130" cy="68" r="11"/><circle cx="188" cy="91" r="11"/>
+    <circle cx="226" cy="82" r="11"/><circle cx="34" cy="132" r="11"/><circle cx="72" cy="132" r="11"/>
+    <circle cx="130" cy="116" r="11"/><circle cx="188" cy="182" r="11"/><circle cx="226" cy="166" r="11"/>
+    <circle cx="72" cy="212" r="11"/><circle cx="34" cy="226" r="11"/><circle cx="130" cy="244" r="11"/>
+    <circle cx="188" cy="226" r="11"/><circle cx="226" cy="218" r="11"/><circle cx="72" cy="286" r="11"/>
+    <circle cx="188" cy="286" r="11"/>
+  </g>
+</svg>
