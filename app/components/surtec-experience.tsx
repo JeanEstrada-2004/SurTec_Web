@@ -164,38 +164,38 @@ export function SurTecExperience() {
           });
           const capTimeline = gsap.timeline({
             scrollTrigger: {
-              trigger: '.capabilities-section', start: 'top top', end: '+=1050',
-              scrub: 0.8, pin: '.capability-stage', anticipatePin: 1,
+              trigger: '.capability-stage', start: 'top 108px', end: () => `+=${Math.round(window.innerHeight * 0.95)}`,
+              scrub: 0.8, pin: true, anticipatePin: 1, invalidateOnRefresh: true,
             },
           });
           capTimeline
             .to(capLines, { strokeDashoffset: 0, stagger: 0.08, duration: 1.5, ease: 'none' })
-            .from('.capability-node', { scale: 0.7, opacity: 0.12, stagger: 0.08, duration: 1.1 }, 0.2)
+            .from('.capability-node', { scale: 0.92, opacity: 0.46, stagger: 0.08, duration: 1.1 }, 0.2)
             .to('.capability-core', { scale: 1.06, duration: 0.4, yoyo: true, repeat: 1 }, 1.1);
 
           const evolution = gsap.timeline({
             scrollTrigger: {
-              trigger: '.evolution-section', start: 'top top', end: '+=1450',
-              scrub: 0.8, pin: '.evolution-stage', anticipatePin: 1,
+              trigger: '.evolution-stage', start: 'top 108px', end: () => `+=${Math.round(window.innerHeight * 1.15)}`,
+              scrub: 0.8, pin: true, anticipatePin: 1, invalidateOnRefresh: true,
             },
           });
           evolution
-            .fromTo('.evolution-statement-one', { opacity: 0.25 }, { opacity: 1, duration: 0.45 })
+            .fromTo('.evolution-statement-one', { opacity: 0.58 }, { opacity: 1, duration: 0.45 })
             .to('.tool-chip', { x: (i) => (i - 3) * 17, y: (i) => (i % 2 ? 24 : -20), stagger: 0.035, duration: 0.7 }, 0.35)
-            .fromTo('.evolution-statement-two', { opacity: 0.18 }, { opacity: 1, duration: 0.55 }, 0.55)
-            .to('.fragment-panel', { opacity: 0.2, scale: 0.93, duration: 0.65 }, 1.25)
-            .fromTo('.integrated-panel', { opacity: 0.18, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.75 }, 1.45)
+            .fromTo('.evolution-statement-two', { opacity: 0.38 }, { opacity: 1, duration: 0.55 }, 0.55)
+            .to('.fragment-panel', { opacity: 0.34, scale: 0.95, duration: 0.65 }, 1.25)
+            .fromTo('.integrated-panel', { opacity: 0.42, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.75 }, 1.45)
             .from('.project-satellite', { scale: 0, opacity: 0, stagger: 0.05, duration: 0.7 }, 1.62)
             .from('.project-ray', { strokeDasharray: 140, strokeDashoffset: 140, stagger: 0.05, duration: 0.75 }, 1.55);
 
           const strategy = gsap.timeline({
             scrollTrigger: {
-              trigger: '.strategy-build', start: 'top 18%', end: '+=820',
-              scrub: 0.7, pin: '.strategy-map', anticipatePin: 1,
+              trigger: '.strategy-map', start: 'top 108px', end: () => `+=${Math.round(window.innerHeight * 0.8)}`,
+              scrub: 0.7, pin: true, anticipatePin: 1, invalidateOnRefresh: true,
             },
           });
           strategy
-            .from('.strategy-layer', { scaleX: 0.45, opacity: 0.15, transformOrigin: 'center', stagger: 0.18, duration: 1 })
+            .from('.strategy-layer', { scaleX: 0.76, opacity: 0.42, transformOrigin: 'center', stagger: 0.18, duration: 1 })
             .from('.strategy-arrow', { scaleY: 0, transformOrigin: 'top', stagger: 0.15, duration: 0.7 }, 0.25);
 
         });
@@ -232,6 +232,105 @@ export function SurTecExperience() {
     };
   }, [reducedMotion]);
 
+  useEffect(() => {
+    const root = rootRef.current;
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    if (!root || reducedMotion || !finePointer.matches) return;
+
+    const cleanups: Array<() => void> = [];
+    const listen = <K extends keyof HTMLElementEventMap>(
+      element: HTMLElement,
+      type: K,
+      listener: (event: HTMLElementEventMap[K]) => void,
+    ) => {
+      element.addEventListener(type, listener as EventListener);
+      cleanups.push(() => element.removeEventListener(type, listener as EventListener));
+    };
+
+    root.querySelectorAll<HTMLElement>('[data-cursor-spotlight]').forEach((element) => {
+      const move = (event: PointerEvent) => {
+        const rect = element.getBoundingClientRect();
+        element.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
+        element.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
+      };
+      listen(element, 'pointerenter', () => element.classList.add('is-cursor-active'));
+      listen(element, 'pointermove', move);
+      listen(element, 'pointerleave', () => element.classList.remove('is-cursor-active'));
+    });
+
+    root.querySelectorAll<HTMLElement>('[data-cursor-magnetic]').forEach((element) => {
+      const move = (event: PointerEvent) => {
+        const rect = element.getBoundingClientRect();
+        const x = (event.clientX - rect.left - rect.width / 2) / rect.width;
+        const y = (event.clientY - rect.top - rect.height / 2) / rect.height;
+        element.style.setProperty('--magnet-x', `${x * 12}px`);
+        element.style.setProperty('--magnet-y', `${y * 8}px`);
+        element.classList.add('is-cursor-active');
+      };
+      const reset = () => {
+        element.style.setProperty('--magnet-x', '0px');
+        element.style.setProperty('--magnet-y', '0px');
+        element.classList.remove('is-cursor-active');
+      };
+      listen(element, 'pointermove', move);
+      listen(element, 'pointerleave', reset);
+    });
+
+    const capabilityStage = root.querySelector<HTMLElement>('.capability-stage');
+    const capabilityCore = capabilityStage?.querySelector<HTMLElement>('.capability-core');
+    const capabilityLines = capabilityStage?.querySelectorAll<SVGLineElement>('.capability-line');
+    capabilityStage?.querySelectorAll<HTMLElement>('.capability-node').forEach((node) => {
+      const surface = node.querySelector<HTMLElement>('.capability-node__surface');
+      const index = Number(node.dataset.capabilityIndex || 0);
+      const line = capabilityLines?.[index];
+      const move = (event: PointerEvent) => {
+        if (!surface) return;
+        const rect = node.getBoundingClientRect();
+        const x = (event.clientX - rect.left - rect.width / 2) / rect.width;
+        const y = (event.clientY - rect.top - rect.height / 2) / rect.height;
+        surface.style.setProperty('--node-x', `${x * 11}px`);
+        surface.style.setProperty('--node-y', `${y * 8}px`);
+        surface.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
+        surface.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
+      };
+      const enter = () => {
+        capabilityStage.classList.add('has-pointer-focus');
+        capabilityCore?.classList.add('is-pointer-active');
+        node.classList.add('is-pointer-active');
+        line?.classList.add('is-pointer-active');
+      };
+      const leave = () => {
+        capabilityStage.classList.remove('has-pointer-focus');
+        capabilityCore?.classList.remove('is-pointer-active');
+        node.classList.remove('is-pointer-active');
+        line?.classList.remove('is-pointer-active');
+        surface?.style.setProperty('--node-x', '0px');
+        surface?.style.setProperty('--node-y', '0px');
+      };
+      listen(node, 'pointerenter', enter);
+      listen(node, 'pointermove', move);
+      listen(node, 'pointerleave', leave);
+    });
+
+    const odsNetwork = root.querySelector<HTMLElement>('.ods-network');
+    odsNetwork?.querySelectorAll<HTMLElement>('.ods-card').forEach((card, index) => {
+      const enter = () => {
+        odsNetwork.classList.add('has-pointer-focus');
+        odsNetwork.dataset.activeOds = String(index);
+        card.classList.add('is-pointer-active');
+      };
+      const leave = () => {
+        odsNetwork.classList.remove('has-pointer-focus');
+        delete odsNetwork.dataset.activeOds;
+        card.classList.remove('is-pointer-active');
+      };
+      listen(card, 'pointerenter', enter);
+      listen(card, 'pointerleave', leave);
+    });
+
+    return () => cleanups.forEach((remove) => remove());
+  }, [reducedMotion]);
+
   const closeMenu = () => setMenuOpen(false);
 
   return (
@@ -262,7 +361,7 @@ export function SurTecExperience() {
               <p className="eyebrow">Ingeniería · Tecnología · Integración</p>
               <h1 id="hero-title">Soluciones que conectan ingeniería, tecnología y resultados.</h1>
               <p className="hero-lede">Ingeniería y tecnología para proyectos que necesitan integración, control y capacidad de respuesta.</p>
-              <a className="text-link light" href="#surtec">Descubrir SurTec <span aria-hidden="true">↓</span></a>
+              <a className="text-link light cursor-magnetic" href="#surtec" data-cursor-magnetic>Descubrir SurTec <span aria-hidden="true">↓</span></a>
             </div>
             <div className="hero-identity" data-hero-lockup>
               <SurTecLockup light />
@@ -305,17 +404,20 @@ export function SurTecExperience() {
           <div className="capability-stage" aria-label="Red de capacidades de SurTec">
             <svg className="capability-lines" viewBox="0 0 1000 680" aria-hidden="true">
               {[[500, 48], [790, 150], [865, 390], [680, 620], [320, 620], [135, 390], [210, 150]].map(([x2, y2], index) => (
-                <line className="capability-line" key={index} x1="500" y1="340" x2={x2} y2={y2} />
+                <line className="capability-line" data-capability-index={index} key={index} x1="500" y1="340" x2={x2} y2={y2} />
               ))}
             </svg>
             <div className="capability-core"><SurTecMark decorative /><span>SurTec</span></div>
             {services.map((service, index) => (
               <div
                 className="capability-node"
+                data-capability-index={index}
                 key={service}
                 style={{ '--x': `${capabilityPoints[index][0]}%`, '--y': `${capabilityPoints[index][1]}%` } as React.CSSProperties}
               >
-                <span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p>
+                <div className="capability-node__surface">
+                  <span>{String(index + 1).padStart(2, '0')}</span><p>{service}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -330,7 +432,7 @@ export function SurTecExperience() {
           <p className="strategy-method" data-reveal>Lectura FODA <span>Fortalezas · Oportunidades · Debilidades · Amenazas</span></p>
           <div className="strategy-signals" id="position-title" data-stagger>
             {strategicSignals.map((signal) => (
-              <article key={signal.key} className="signal-card">
+              <article key={signal.key} className="signal-card cursor-spotlight" data-cursor-spotlight>
                 <header><span>{signal.key}</span><h3>{signal.label}</h3></header>
                 <ul>{signal.items.map((item) => <li key={item}>{item}</li>)}</ul>
               </article>
@@ -445,12 +547,12 @@ export function SurTecExperience() {
         <section id="impacto" className="section impact-section scene-dark">
           <SectionIntro index="07" eyebrow="Impacto sostenible" title="Integrar también es construir capacidad para crecer mejor." copy="La transformación conecta productividad, infraestructura empresarial y desarrollo de capacidades sin apartarse de la operación." light />
           <div className="ods-network" data-stagger>
-            <article>
+            <article className="ods-card cursor-spotlight" data-cursor-spotlight>
               <div className="ods-number">09</div>
               <div><span>ODS principal</span><h3>Industria, innovación e infraestructura</h3><p>La transformación digital fortalece la infraestructura empresarial, la integración tecnológica y la capacidad de innovación de SurTec.</p></div>
             </article>
             <div className="ods-connector" aria-hidden="true"><i /><i /><i /></div>
-            <article>
+            <article className="ods-card cursor-spotlight" data-cursor-spotlight>
               <div className="ods-number">08</div>
               <div><span>ODS complementario</span><h3>Trabajo decente y crecimiento económico</h3><p>Una gestión más eficiente contribuye a la productividad, el crecimiento empresarial y el desarrollo de capacidades del personal.</p></div>
             </article>
@@ -468,7 +570,7 @@ export function SurTecExperience() {
           <footer>
             <span>SurTec · Ingeniería y Tecnología</span>
             <span>Arequipa · Macro Región Sur · Capacidad nacional</span>
-            <a href="#inicio">Volver al inicio ↑</a>
+            <a className="cursor-magnetic" href="#inicio" data-cursor-magnetic>Volver al inicio <span aria-hidden="true">↑</span></a>
           </footer>
         </section>
       </div>
