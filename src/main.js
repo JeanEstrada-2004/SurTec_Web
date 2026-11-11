@@ -212,6 +212,17 @@ initRoadmap(ctx);
 initClose(ctx);
 const modules = initModules(ctx, (i) => net?.setFocus(i));
 
+// Las cotas bajo las palabras clave se dibujan cuando el título entra en pantalla
+const marks = $$('.mark');
+if (reduced || !('IntersectionObserver' in window)) marks.forEach((m) => m.classList.add('is-drawn'));
+else {
+  const io = new IntersectionObserver(
+    (entries) => entries.forEach((e) => e.target.classList.toggle('is-drawn', e.isIntersecting)),
+    { threshold: 0.6 },
+  );
+  marks.forEach((m) => io.observe(m));
+}
+
 ScrollTrigger.addEventListener('refresh', () => {
   measure();
   onScroll();

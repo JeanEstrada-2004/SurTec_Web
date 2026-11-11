@@ -2665,3 +2665,253 @@ main {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ==========================================================================
+   Tipografía con carácter de plano: palabra clave + cota, títulos en dos tonos
+   ========================================================================== */
+
+.mark {
+  position: relative;
+  display: inline-block;
+  font-style: normal;
+  color: var(--c-signal);
+  white-space: nowrap;
+}
+
+html[data-tone='dark'] .mark,
+.scene--night .mark,
+.scene--close .mark {
+  color: var(--c-signal-300);
+}
+
+.scene--paper .mark {
+  color: var(--c-signal);
+}
+
+/* cota: línea de medida con remates, como en un plano */
+.mark::after {
+  content: '';
+  position: absolute;
+  left: 0.02em;
+  right: 0.02em;
+  bottom: -0.1em;
+  height: 0.2em;
+  border: 2px solid currentColor;
+  border-top: 0;
+  opacity: 0.55;
+  transform-origin: left;
+  transition: transform 0.9s var(--ease-out) 0.25s;
+}
+
+.is-motion .mark:not(.is-drawn)::after {
+  transform: scaleX(0);
+}
+
+.soft {
+  color: var(--c-steel);
+  font-weight: 600;
+}
+
+html[data-tone='dark'] .soft,
+.scene--night .soft {
+  color: var(--c-on-dark-2);
+}
+
+.soft .mark {
+  font-weight: 700;
+}
+
+.hero__title .mark::after {
+  border-width: 3px;
+}
+
+/* Datos de SurTec con jerarquía */
+.facts dt {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.facts dd {
+  margin-top: 2px;
+  font-family: var(--f-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+/* Cadena de efectos numerada con línea de avance */
+.cascade {
+  position: relative;
+  border-left: 0;
+  counter-reset: step;
+  gap: 2px;
+}
+
+.cascade::before,
+.cascade::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: var(--c-line);
+}
+
+.cascade::after {
+  background: var(--c-ink);
+  transform-origin: top;
+  transform: scaleY(var(--fill, 1));
+  transition: transform 0.4s var(--ease-out);
+}
+
+.cascade li {
+  counter-increment: step;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 0;
+  font-family: var(--f-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.cascade li::before {
+  content: counter(step, decimal-leading-zero);
+  position: relative;
+  z-index: 1;
+  left: auto;
+  top: auto;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--c-steel-400);
+  background: var(--c-paper-2);
+  color: var(--c-steel);
+  font-family: var(--f-text);
+  font-size: 0.66rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.is-motion .cascade li.is-past::before {
+  border-color: var(--c-ink);
+  background: var(--c-ink);
+  color: var(--c-white);
+}
+
+.is-motion .cascade li.is-current {
+  font-size: 1.22rem;
+  font-weight: 700;
+}
+
+.is-motion .cascade li.is-current::before {
+  width: 30px;
+  height: 30px;
+  margin: 0 -2px;
+  border-color: var(--c-ink);
+  background: var(--c-ink);
+  color: var(--c-white);
+  box-shadow: 0 0 0 5px rgba(26, 54, 93, 0.12);
+}
+
+/* Módulos numerados */
+.modules {
+  counter-reset: mod;
+}
+
+.modules li {
+  counter-increment: mod;
+  transition: background-color 0.25s var(--ease-out);
+}
+
+.modules button {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 6px 8px;
+  font-family: var(--f-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.modules button::before {
+  content: counter(mod, decimal-leading-zero);
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font-family: var(--f-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--c-signal-300);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+  transform: none;
+}
+
+.modules li.is-active {
+  background: rgba(111, 178, 245, 0.1);
+}
+
+.modules li.is-active button {
+  font-size: 1.12rem;
+  color: var(--c-white);
+}
+
+.modules li.is-active button::before {
+  background: none;
+  opacity: 1;
+  transform: none;
+}
+
+.modules p {
+  padding: 0 8px 10px 34px;
+}
+
+.transversal strong {
+  display: inline;
+  font-size: inherit;
+}
+
+@media (max-width: 760px) {
+  .cascade::before,
+  .cascade::after {
+    left: 11px;
+  }
+
+  .is-motion .cascade li.is-current {
+    font-size: 1.05rem;
+  }
+
+  .modules button {
+    gap: 6px;
+    padding: 6px 4px;
+    font-size: 0.82rem;
+  }
+
+  .modules li.is-active button {
+    font-size: 0.86rem;
+  }
+
+  .modules li.is-active {
+    background: none;
+  }
+
+  .modules p,
+  .has-3d .modules li.is-active p {
+    padding-left: 0;
+  }
+}

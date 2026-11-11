@@ -38,6 +38,7 @@ export function initStoryText({ gsap, ScrollTrigger, reduced }) {
       li.classList.toggle('is-past', i < idx);
     });
     gap.style.opacity = String(clamp01((p - 0.6) / 0.1));
+    steps[0].parentElement.style.setProperty('--fill', String(Math.max(0, idx) / (steps.length - 1)));
   };
   ScrollTrigger.create({
     trigger: '#problema',
