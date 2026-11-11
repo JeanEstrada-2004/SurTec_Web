@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-11T16:00:00Z",
+  "title": "Design System: SurTec · PETI 2027–2030",
+  "extensions": {
+    "colorMeta": {
+      "azul-corporativo": { "role": "primary", "displayName": "Azul Corporativo", "canonical": "#1a365d", "tonalRamp": ["#0a1a33", "#0f2443", "#1a365d", "#2a4a78", "#456694", "#6f8bb2", "#a6b9d2", "#dde5ef"] },
+      "azul-corporativo-900": { "role": "primary", "displayName": "Azul Corporativo 900", "canonical": "#0f2443" },
+      "azul-corporativo-950": { "role": "primary", "displayName": "Azul Corporativo 950", "canonical": "#0a1a33" },
+      "azul-integracion": { "role": "secondary", "displayName": "Azul Integración", "canonical": "#0066cc", "tonalRamp": ["#00284f", "#003f7e", "#0057ad", "#0066cc", "#3a8ce0", "#6fb2f5", "#a9d1fa", "#dcebfb"] },
+      "azul-integracion-600": { "role": "secondary", "displayName": "Azul Integración 600 (hover)", "canonical": "#0057ad" },
+      "azul-integracion-300": { "role": "secondary", "displayName": "Cyanotype Signal", "canonical": "#6fb2f5" },
+      "azul-integracion-200": { "role": "secondary", "displayName": "Cyanotype Line", "canonical": "#a9d1fa" },
+      "azul-integracion-100": { "role": "secondary", "displayName": "Signal Wash", "canonical": "#dcebfb" },
+      "gris-estructural": { "role": "neutral", "displayName": "Gris Estructural", "canonical": "#4a5568", "tonalRamp": ["#1e2530", "#2d3748", "#4a5568", "#5f6b7d", "#718096", "#a0aec0", "#cbd5e0", "#edf2f7"] },
+      "gris-estructural-400": { "role": "neutral", "displayName": "Gris Estructural 400", "canonical": "#718096" },
+      "gris-estructural-200": { "role": "neutral", "displayName": "Gris Estructural 200", "canonical": "#cbd5e0" },
+      "blanco-tecnico": { "role": "neutral", "displayName": "Blanco Técnico", "canonical": "#f7fafc", "tonalRamp": ["#a0aec0", "#cbd5e0", "#dfe6ee", "#e6ecf3", "#edf2f7", "#f2f6fa", "#f7fafc", "#ffffff"] },
+      "blanco-tecnico-2": { "role": "neutral", "displayName": "Blanco Técnico 2 (problem ground)", "canonical": "#edf2f7" },
+      "white": { "role": "neutral", "displayName": "White", "canonical": "#ffffff" },
+      "on-dark-2": { "role": "neutral", "displayName": "Cyanotype Secondary Text", "canonical": "#c3d3e8" },
+      "line": { "role": "neutral", "displayName": "Drafting Line", "canonical": "rgba(26, 54, 93, 0.16)" },
+      "line-strong": { "role": "neutral", "displayName": "Drafting Line Strong", "canonical": "rgba(26, 54, 93, 0.32)" },
+      "line-dark": { "role": "neutral", "displayName": "Cyanotype Line", "canonical": "rgba(169, 209, 250, 0.2)" },
+      "line-dark-strong": { "role": "neutral", "displayName": "Cyanotype Line Strong", "canonical": "rgba(169, 209, 250, 0.42)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero title only." },
+      "headline": { "displayName": "Headline", "purpose": "Scene headings, the turning-point question and the closing line." },
+      "numeral": { "displayName": "Numeral", "purpose": "2030 goal values and roadmap years; tabular figures." },
+      "title": { "displayName": "Title", "purpose": "Roadmap phase names, ODS headings, panel titles." },
+      "core-label": { "displayName": "Core Label", "purpose": "Uppercase name of the core entity (PROYECTO) in diagrams and the 3D network." },
+      "lede": { "displayName": "Lede", "purpose": "Scene introductions, max 40rem." },
+      "body": { "displayName": "Body", "purpose": "Running text; 1rem on mobile." },
+      "label": { "displayName": "Label", "purpose": "Node labels, chips, diagram list items." },
+      "field-label": { "displayName": "Field Label", "purpose": "Uppercase field names in the cajetín title block only." }
+    },
+    "grounds": [
+      { "name": "paper", "value": "background-color: #f7fafc; background-image: linear-gradient(rgba(26,54,93,0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(26,54,93,0.09) 1px, transparent 1px), linear-gradient(rgba(26,54,93,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(26,54,93,0.055) 1px, transparent 1px); background-size: 160px 160px, 160px 160px, 32px 32px, 32px 32px;", "purpose": "Light phase: Blanco Técnico drafting paper." },
+      { "name": "cyanotype", "value": "background-color: #1a365d; background-image: linear-gradient(rgba(169,209,250,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(169,209,250,0.08) 1px, transparent 1px), linear-gradient(rgba(169,209,250,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(169,209,250,0.045) 1px, transparent 1px); background-size: 160px 160px, 160px 160px, 32px 32px, 32px 32px;", "purpose": "Integrated phase: the same drawing in negative on Azul Corporativo." }
+    ],
+    "shadows": [
+      { "name": "signal-lift", "value": "0 1px 2px rgba(10, 26, 51, 0.18), 0 8px 20px -10px rgba(0, 102, 204, 0.7)", "purpose": "Primary button at rest." },
+      { "name": "lit-node", "value": "0 6px 16px -10px rgba(0, 102, 204, 0.55)", "purpose": "Flow node reached by the data pulse." },
+      { "name": "device-drop", "value": "0 30px 60px -24px rgba(10, 26, 51, 0.55), 0 2px 6px rgba(10, 26, 51, 0.2)", "purpose": "Phone mockup resting on the drawing." },
+      { "name": "browser-drop", "value": "0 50px 90px -40px rgba(4, 12, 28, 0.85), 0 2px 8px rgba(4, 12, 28, 0.4)", "purpose": "Browser frame on the cyanotype." },
+      { "name": "ring-marker", "value": "0 0 0 4px <ground>, 0 0 0 5px <ink>", "purpose": "Dimension-style ring around the current cascade dot or an OCR-read field." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Default for every state transition (controls 0.2s, list states 0.3s, button press 0.16s)." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Looping scroll cue (2.2s)." },
+      { "name": "gsap-entrance", "value": "expo.out, 0.8–1.6s", "purpose": "One-shot reveals (goal counters, closing frame, copy entrances)." },
+      { "name": "scrub", "value": "ScrollTrigger scrub: true | 0.6", "purpose": "Pinned scenes scrub to scroll; 0.6 smoothing on the turning point and closing frame." },
+      { "name": "hero-rise", "value": "rise 0.95s ease-out, translateY(18px) + blur(8px) → none, staggered 0.08–0.34s", "purpose": "Hero entrance only." },
+      { "name": "press", "value": "transform: scale(0.97)", "purpose": "Active state for buttons." },
+      { "name": "network-states", "value": "0 isolated · 1 ring · 2 fragmentation · 3 convergence · 4 orbit · 5 ecosystem", "purpose": "Persistent Three.js graph topology driven by scroll; tone flips to dark past state 2.12." },
+      { "name": "reduced-motion", "value": "html.is-reduced: unpinned stages, static diagrams, all list states on; prefers-reduced-motion clamps animation/transition to 0.001ms", "purpose": "Complete static version." }
+    ],
+    "breakpoints": [
+      { "name": "narrow-desktop", "value": "max-width: 1100px" },
+      { "name": "unpin", "value": "max-width: 1023px, max-height: 620px" },
+      { "name": "mobile", "value": "max-width: 760px" },
+      { "name": "short-desktop", "value": "max-height: 800px and min-width: 1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action: Azul Integración, 6px corners, signal lift, trailing stroke icon.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Explorar plataforma <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 22px; border: 1px solid transparent; border-radius: 6px; font-family: 'Archivo Variable', 'Archivo', 'Segoe UI', sans-serif; font-size: 0.98rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.23,1,0.32,1), border-color 0.2s cubic-bezier(0.23,1,0.32,1), color 0.2s cubic-bezier(0.23,1,0.32,1), transform 0.16s cubic-bezier(0.23,1,0.32,1); } .ds-btn-primary { background: var(--c-signal, #0066cc); color: #fff; box-shadow: 0 1px 2px rgba(10,26,51,0.18), 0 8px 20px -10px rgba(0,102,204,0.7); } .ds-btn-primary:hover { background: var(--c-signal-600, #0057ad); } .ds-btn:hover .ds-icon { transform: translate(2px, -1px); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 3px; } .ds-icon { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s cubic-bezier(0.23,1,0.32,1); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action drawn as a 1px outline; turns signal blue on hover.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Descubrir propuesta <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M6 13l6 6 6-6\"/></svg></a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 22px; border: 1px solid rgba(26,54,93,0.32); border-radius: 6px; background: transparent; color: #1a365d; font-family: 'Archivo Variable', 'Archivo', 'Segoe UI', sans-serif; font-size: 0.98rem; font-weight: 600; text-decoration: none; transition: border-color 0.2s cubic-bezier(0.23,1,0.32,1), color 0.2s cubic-bezier(0.23,1,0.32,1), transform 0.16s cubic-bezier(0.23,1,0.32,1); } .ds-btn-ghost:hover { border-color: #0066cc; color: #0066cc; } .ds-btn-ghost:active { transform: scale(0.97); } .ds-btn-ghost:focus-visible { outline: 2px solid #0066cc; outline-offset: 3px; } .ds-btn-ghost .ds-icon { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Navigation Top Bar",
+      "kind": "nav",
+      "refersTo": "button-small",
+      "description": "Fixed bar in its scrolled state: translucent paper, blur, 1px bottom line, two-line title and small primary action.",
+      "html": "<header class=\"ds-topbar\"><span class=\"ds-topbar-title\">Transformación digital <span>PETI 2027–2030</span></span><a class=\"ds-topbar-btn\" href=\"#\">Explorar plataforma</a></header>",
+      "css": ".ds-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; padding: 0 32px; background: rgba(247,250,252,0.86); border-bottom: 1px solid rgba(26,54,93,0.16); backdrop-filter: blur(10px); color: #1a365d; } .ds-topbar-title { display: grid; font-family: 'Montserrat Variable', 'Montserrat', sans-serif; font-size: 0.86rem; font-weight: 700; line-height: 1.15; } .ds-topbar-title span { font-family: 'Archivo Variable', 'Archivo', sans-serif; font-weight: 500; font-size: 0.78rem; color: #4a5568; font-variant-numeric: tabular-nums; } .ds-topbar-btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 6px; background: #0066cc; color: #fff; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: background-color 0.2s cubic-bezier(0.23,1,0.32,1); } .ds-topbar-btn:hover { background: #0057ad; } .ds-topbar-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 3px; }"
+    },
+    {
+      "name": "Tool Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Static-diagram chip naming a current tool with a secondary line.",
+      "html": "<ul class=\"ds-chips\"><li>Excel<small>Presupuestos</small></li><li>WhatsApp<small>Coordinación</small></li><li>Drive<small>Documentos</small></li></ul>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; } .ds-chips li { padding: 8px 14px; border: 1px solid rgba(26,54,93,0.16); border-radius: 4px; background: #f7fafc; color: #1a365d; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.9rem; font-weight: 600; } .ds-chips small { display: block; font-size: 0.75rem; font-weight: 500; color: #4a5568; }"
+    },
+    {
+      "name": "Node Label",
+      "kind": "custom",
+      "refersTo": "node-label",
+      "description": "Label projected beside a 3D node; focus state fills signal blue.",
+      "html": "<div class=\"ds-node-row\"><span class=\"ds-dot\"></span><span class=\"ds-node-label\">Compras y OC<small>Órdenes por proyecto</small></span><span class=\"ds-dot is-on\"></span><span class=\"ds-node-label is-focus\" tabindex=\"0\">Costos<small>Costo real vs. presupuesto</small></span></div>",
+      "css": ".ds-node-row { display: flex; align-items: center; gap: 14px; padding: 24px; background: #f7fafc; } .ds-dot { width: 9px; height: 9px; border-radius: 50%; background: #1a365d; } .ds-dot.is-on { background: #0066cc; } .ds-node-label { display: grid; gap: 1px; padding: 5px 9px 6px; border: 1px solid rgba(26,54,93,0.16); border-radius: 4px; background: rgba(247,250,252,0.9); color: #1a365d; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.8125rem; font-weight: 600; line-height: 1.25; white-space: nowrap; transition: border-color 0.2s, background-color 0.2s, color 0.2s; cursor: pointer; } .ds-node-label small { font-size: 0.72rem; font-weight: 500; color: #4a5568; } .ds-node-label.is-focus, .ds-node-label:hover { border-color: #6fb2f5; background: #0066cc; color: #fff; } .ds-node-label.is-focus small, .ds-node-label:hover small { color: #dcebfb; } .ds-node-label:focus-visible { outline: 2px solid #0066cc; outline-offset: 3px; }"
+    },
+    {
+      "name": "Flow Nodes",
+      "kind": "custom",
+      "refersTo": "flow-node",
+      "description": "Functional-flow tiles: idle, lit, PROYECTO core and trace states joined by 1px wires.",
+      "html": "<div class=\"ds-flow\"><span class=\"ds-flow-node\">CRM</span><i></i><span class=\"ds-flow-node is-core\">Proyecto</span><i class=\"is-lit\"></i><span class=\"ds-flow-node is-on\">Compras</span><i class=\"is-trace\"></i><span class=\"ds-flow-node is-trace\">Costos</span></div>",
+      "css": ".ds-flow { display: flex; align-items: center; padding: 24px; background: #f7fafc; } .ds-flow i { flex: 1; min-width: 24px; height: 1.25px; background: #cbd5e0; } .ds-flow i.is-lit { background: #0066cc; } .ds-flow i.is-trace { height: 2.25px; background: #1a365d; } .ds-flow-node { padding: 11px 12px; border: 1px solid rgba(26,54,93,0.16); border-radius: 6px; background: #fff; color: #4a5568; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.88rem; font-weight: 600; transition: border-color 0.3s, background-color 0.3s, color 0.3s, box-shadow 0.3s; } .ds-flow-node.is-core { padding-block: 18px; background: #1a365d; border-color: #1a365d; color: #f7fafc; font-family: 'Montserrat Variable', 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; } .ds-flow-node.is-on { color: #1a365d; border-color: #0066cc; box-shadow: 0 6px 16px -10px rgba(0,102,204,0.55); } .ds-flow-node.is-trace { background: #0066cc; border-color: #0066cc; color: #fff; }"
+    },
+    {
+      "name": "Goal Ruler",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A 2030 target as a dimension ruler: tabular numeral, label, ticked baseline with a 'meta' marker.",
+      "html": "<div class=\"ds-goal\" style=\"--p: 90\"><p class=\"ds-goal-value\"><span class=\"op\">≥</span>90<span class=\"unit\">%</span></p><p class=\"ds-goal-label\">de proyectos activos integrados en la plataforma</p><div class=\"ds-ruler\"></div></div>",
+      "css": ".ds-goal { display: grid; gap: 12px; max-width: 280px; padding: 28px 0; } .ds-goal-value { margin: 0; display: flex; align-items: baseline; font-family: 'Montserrat Variable', 'Montserrat', sans-serif; font-size: 4rem; font-weight: 700; line-height: 0.95; letter-spacing: -0.04em; color: #1a365d; font-variant-numeric: tabular-nums; } .ds-goal-value .op { margin-right: 0.08em; font-size: 0.55em; font-weight: 600; color: #0066cc; } .ds-goal-value .unit { margin-left: 0.04em; font-size: 0.5em; font-weight: 600; } .ds-goal-label { margin: 0; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.98rem; line-height: 1.45; color: #4a5568; } .ds-ruler { position: relative; height: 30px; border-bottom: 1px solid #1a365d; background-image: repeating-linear-gradient(90deg, rgba(26,54,93,0.32) 0 1px, transparent 1px 10%); background-size: 100% 8px; background-position: 0 100%; background-repeat: no-repeat; } .ds-ruler::before { content: ''; position: absolute; bottom: 0; left: calc(var(--p) * 1%); right: 0; height: 14px; background: #dcebfb; border-left: 2px solid #0066cc; } .ds-ruler::after { content: 'meta'; position: absolute; bottom: 16px; left: calc(var(--p) * 1%); transform: translateX(-50%); font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.68rem; font-weight: 600; color: #0066cc; }"
+    },
+    {
+      "name": "Cajetín (Title Block)",
+      "kind": "card",
+      "refersTo": "titleblock-field",
+      "description": "Closing credits as an engineering title block on the cyanotype.",
+      "html": "<dl class=\"ds-titleblock\"><div class=\"wide\"><dt>Proyecto</dt><dd>Plan Estratégico de Tecnologías de Información · SurTec Ingeniería y Tecnología S.A.C.</dd></div><div><dt>Horizonte</dt><dd>2027–2030</dd></div><div><dt>Curso</dt><dd>Planeamiento Estratégico de Tecnologías de Información</dd></div><div class=\"wide\"><dt>Nota</dt><dd>Empresa ficticia con fines académicos</dd></div></dl>",
+      "css": ".ds-titleblock { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; border: 1px solid rgba(169,209,250,0.42); background: #1a365d; } .ds-titleblock > div { padding: 12px 14px; border-right: 1px solid rgba(169,209,250,0.2); border-bottom: 1px solid rgba(169,209,250,0.2); } .ds-titleblock .wide { grid-column: span 3; } .ds-titleblock dt { font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #6fb2f5; } .ds-titleblock dd { margin: 2px 0 0; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.88rem; line-height: 1.4; color: #f7fafc; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Browser Frame",
+      "kind": "custom",
+      "refersTo": "browser-frame",
+      "description": "Window that presents the navigable mockup on the cyanotype, with its own try button.",
+      "html": "<div class=\"ds-browser\"><div class=\"ds-browser-bar\"><span class=\"dots\"><i></i><i></i><i></i></span><span class=\"url\">jeanestrada-2004.github.io/Mockup-ERP</span><button class=\"try\" type=\"button\">Probar</button></div><div class=\"ds-browser-view\"></div></div>",
+      "css": ".ds-browser { max-width: 560px; border: 1px solid rgba(169,209,250,0.42); border-radius: 12px; background: #0a1a33; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(4,12,28,0.85), 0 2px 8px rgba(4,12,28,0.4); } .ds-browser-bar { display: flex; align-items: center; gap: 16px; padding: 10px 14px; border-bottom: 1px solid rgba(169,209,250,0.2); } .ds-browser-bar .dots { display: flex; gap: 6px; } .ds-browser-bar .dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(169,209,250,0.3); } .ds-browser-bar .url { flex: 1; padding: 5px 14px; border-radius: 6px; background: rgba(169,209,250,0.08); font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.8rem; color: #c3d3e8; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-browser-bar .try { padding: 7px 14px; border: 0; border-radius: 6px; background: #0066cc; color: #fff; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.86rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s, transform 0.16s cubic-bezier(0.23,1,0.32,1); } .ds-browser-bar .try:hover { background: #0057ad; } .ds-browser-bar .try:active { transform: scale(0.97); } .ds-browser-bar .try:focus-visible { outline: 2px solid #6fb2f5; outline-offset: 3px; } .ds-browser-view { aspect-ratio: 16 / 10; background: #f7fafc; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Living Plano",
+    "overview": "Every surface is a sheet from the engineering drawing of a company that works by projects. The light phase is Blanco Técnico drafting paper ruled with a fine grid, inked in Azul Corporativo and Gris Estructural with 1px technical strokes. When the story reaches integration, the same drawing turns to its negative: a cyanotype on Azul Corporativo where Azul Integración becomes signal light. The two grounds are one drawing in two exposures, never two brands.\n\nThe system is thin-lined, measured and quiet. Structure is drawn, not boxed: hairline rules divide lists and grids, dots mark nodes, rulers carry quantities, and a title block (cajetín) closes the sheet. Display type is Montserrat (the wordmark's voice), tight and heavy; reading text is Archivo with tabular numerals wherever a figure appears. Colour is almost entirely the four brand colours and their soft steps; Azul Integración is reserved for what is connected, active or actionable.\n\nMotion explains the network rather than decorating it. A single persistent Three.js graph changes topology as the visitor scrolls (states 0–5), GSAP scrubs scenes to the scroll position, and every animated idea has a complete static drawing for reduced motion or no WebGL. Official SurTec logos appear as supplied, never redrawn.",
+    "keyCharacteristics": [
+      "Two grounds, one drawing: drafting-grid paper (light) and cyanotype on Azul Corporativo (dark), switched by `data-tone`.",
+      "1px technical strokes, 32px minor / 160px major drafting grid.",
+      "Montserrat Variable display, Archivo Variable text, tabular numerals for all data.",
+      "One radius family centred on gently squared corners (6px).",
+      "Azul Integración means \"connected / active / do this\".",
+      "Scroll-scrubbed, explanatory motion with a full static fallback."
+    ],
+    "rules": [
+      { "name": "The Signal Means Connected Rule", "body": "Azul Integración marks only what is linked, active, measured as a target or clickable. A static decoration in signal blue is a bug.", "section": "colors" },
+      { "name": "The Negative Print Rule", "body": "The dark phase is the same drawing inverted, not a new theme: Azul Corporativo becomes the ground, Blanco Técnico the ink, azul-integracion-300 the signal. Tone flips at the integration point of the story, never per component.", "section": "colors" },
+      { "name": "The Brand-Only Palette Rule", "body": "Every colour is one of the four brand colours or a soft tint/shade of them, including the 3D network's per-state palette.", "section": "colors" },
+      { "name": "The Tabular Figures Rule", "body": "Any numeral that is data (goals, years, money, percentages, step numbers) sets with tabular-nums.", "section": "typography" },
+      { "name": "The Two Voices Rule", "body": "Montserrat speaks (titles, numbers, the core entity); Archivo explains (everything read or labelled). Never set paragraphs in Montserrat.", "section": "typography" },
+      { "name": "The Flat Drawing Rule", "body": "Panels, lists and diagrams carry no shadow; they are separated by 1px lines. Shadow is a state (active, lit) or a physical object (device), never a card style.", "section": "elevation" }
+    ],
+    "dos": [
+      "**Do** draw structure with 1px lines in the line tokens; reserve 2px for active or traced states.",
+      "**Do** keep the drafting grid at 32px / 160px behind every paper and cyanotype surface.",
+      "**Do** use Azul Integración only for what is connected, active, targeted or clickable.",
+      "**Do** flip to the cyanotype (data-tone dark) only at the story's integration point and keep it as the same drawing in negative.",
+      "**Do** set every data figure in tabular numerals and label every goal as a 2030 target (meta).",
+      "**Do** use the ease-out curve cubic-bezier(0.23, 1, 0.32, 1) for state changes (0.2s for controls, 0.3s for list states) and scrub scene timelines to scroll.",
+      "**Do** ship a complete static version for prefers-reduced-motion and for no-WebGL: unpinned stages, static diagrams, every list state shown on.",
+      "**Do** use the official SurTec logo and isotipo files as supplied, colour on paper and white on dark."
+    ],
+    "donts": [
+      "**Don't** redraw, recolour, re-proportion or trace the SurTec logo; it is never reconstructed in SVG or CSS.",
+      "**Don't** introduce a hue outside the four brand colours and their soft steps, in CSS or in the 3D palette.",
+      "**Don't** wrap content in shadowed cards; separation is by line, shadow only for active state or device objects.",
+      "**Don't** set paragraphs in Montserrat or headings in Archivo.",
+      "**Don't** animate for decoration; if motion does not explain a change in the network or data, remove it.",
+      "**Don't** present a goal ruler, number or bar as an achieved result."
+    ]
+  }
+}

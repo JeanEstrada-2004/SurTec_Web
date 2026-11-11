@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-11T20:29:02.471Z",
+        "reason": "agent: false positive - detector read index.html without the external stylesheet (all roles reported 16px); real sizes in src/styles/main.css are h1 up to 5.1rem, h2 up to 3.9rem, body 1.06rem"
+      }
+    ]
+  }
+}

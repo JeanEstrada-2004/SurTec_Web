@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="es" data-tone="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SurTec · Transformación Digital para la Gestión Integral de Proyectos</title>
+    <meta
+      name="description"
+      content="Del dato aislado a la trazabilidad integral del proyecto. Plataforma Integrada de Gestión y Control de Proyectos para SurTec Ingeniería y Tecnología S.A.C. — PETI 2027–2030."
+    />
+    <meta name="theme-color" content="#1A365D" />
+    <meta property="og:title" content="Transformación Digital para la Gestión Integral de Proyectos · SurTec" />
+    <meta property="og:description" content="Una plataforma. Un proyecto. Toda la información conectada. PETI 2027–2030." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://jeanestrada-2004.github.io/SurTec_Web/og.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script>
+      // Decide antes del primer pintado si habrá 3D, para evitar saltos de maquetación.
+      (function () {
+        var d = document.documentElement;
+        var q = new URLSearchParams(location.search);
+        var reduced = q.has('reduce-motion') || matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var gl = false;
+        if (!reduced && !q.has('no-webgl')) {
+          try {
+            var c = document.createElement('canvas');
+            gl = !!(c.getContext('webgl2') || c.getContext('webgl'));
+          } catch (e) {}
+        }
+        d.classList.add(reduced ? 'is-reduced' : 'is-motion', gl ? 'has-3d' : 'no-3d');
+      })();
+    </script>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" /></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" /></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" /></symbol>
+      <symbol id="i-scan" viewBox="0 0 24 24">
+        <path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M4 12h16" />
+      </symbol>
+    </svg>
+
+    <a class="skip" href="#historia">Saltar al contenido</a>
+
+    <header class="topbar">
+      <a class="topbar__brand" href="#inicio" aria-label="SurTec, volver al inicio">
+        <img class="topbar__mark topbar__mark--color" src="/src/assets/brand/isotipo-color.png" alt="" width="171" height="209" />
+        <img class="topbar__mark topbar__mark--white" src="/src/assets/brand/isotipo-white.png" alt="" width="214" height="256" />
+        <span class="topbar__title">Transformación digital <span>PETI 2027–2030</span></span>
+      </a>
+      <a class="btn btn--primary btn--small" href="https://jeanestrada-2004.github.io/Mockup-ERP/surtec-peti/index.html" target="_blank" rel="noopener">
+        Explorar plataforma
+        <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+      </a>
+    </header>
+
+    <nav class="rail" aria-label="Escenas de la historia">
+      <ol>
+        <li><a href="#inicio" data-rail="inicio"><span class="rail__n">1</span><span class="rail__label">Inicio</span></a></li>
+        <li><a href="#surtec" data-rail="surtec"><span class="rail__n">2</span><span class="rail__label">SurTec</span></a></li>
+        <li><a href="#problema" data-rail="problema"><span class="rail__n">3</span><span class="rail__label">Problema</span></a></li>
+        <li><a href="#giro" data-rail="giro"><span class="rail__n">4</span><span class="rail__label">Transformación</span></a></li>
+        <li><a href="#solucion" data-rail="solucion"><span class="rail__n">5</span><span class="rail__label">Solución</span></a></li>
+        <li><a href="#funcionamiento" data-rail="funcionamiento"><span class="rail__n">6</span><span class="rail__label">Cómo funciona</span></a></li>
+        <li><a href="#tecnologia" data-rail="tecnologia"><span class="rail__n">7</span><span class="rail__label">Tecnología</span></a></li>
+        <li><a href="#impacto" data-rail="impacto"><span class="rail__n">8</span><span class="rail__label">Impacto</span></a></li>
+        <li><a href="#ruta" data-rail="ruta"><span class="rail__n">9</span><span class="rail__label">Roadmap</span></a></li>
+        <li><a href="#plataforma" data-rail="plataforma"><span class="rail__n">10</span><span class="rail__label">Mockup</span></a></li>
+      </ol>
+    </nav>
+
+    <canvas class="network" id="network" aria-hidden="true"></canvas>
+    <div class="node-labels" id="node-labels" aria-hidden="true"></div>
+
+    <main id="historia">
+      <!-- 1 · HERO -->
+      <section class="scene scene--hero" id="inicio" data-scene="inicio" data-tone="light" aria-labelledby="hero-title">
+        <div class="hero">
+          <img class="hero__logo" src="/src/assets/brand/logo-color.png" alt="SurTec Ingeniería y Tecnología" width="396" height="355" />
+          <h1 class="hero__title" id="hero-title">Transformación Digital para la Gestión Integral de Proyectos</h1>
+          <p class="hero__subtitle">Plataforma Integrada de Gestión y Control de Proyectos para SurTec Ingeniería y Tecnología S.A.C.</p>
+          <p class="hero__claim">Del dato aislado a la trazabilidad integral del proyecto.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#surtec">
+              Descubrir propuesta
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-down" /></svg>
+            </a>
+            <a class="btn btn--ghost" href="https://jeanestrada-2004.github.io/Mockup-ERP/surtec-peti/index.html" target="_blank" rel="noopener">
+              Explorar plataforma
+              <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+            </a>
+          </div>
+        </div>
+        <p class="hero__cue" aria-hidden="true"><span></span>Desliza: la historia toma unos 3 minutos</p>
+      </section>
+
+      <!-- 2 · SURTEC -->
+      <section class="scene scene--sticky" id="surtec" data-scene="surtec" data-tone="light" style="--len: 2" aria-labelledby="surtec-title">
+        <div class="stage">
+          <div class="copy copy--side">
+            <h2 class="display" id="surtec-title">SurTec trabaja por proyectos.</h2>
+            <p class="lede">
+              Empresa arequipeña de ingeniería e integración tecnológica. Opera en la Macro Región Sur, con relaciones B2B
+              predominantes y participación B2G selectiva.
+            </p>
+            <dl class="facts" data-reveal-group>
+              <div><dt>Base</dt><dd>Arequipa, Perú</dd></div>
+              <div><dt>Cobertura</dt><dd>Macro Región Sur y proyectos nacionales</dd></div>
+              <div><dt>Mercado</dt><dd>B2B predominante · B2G selectivo</dd></div>
+              <div><dt>Sectores</dt><dd>Minería, industria, energía, salud, educación, empresas privadas y entidades públicas</dd></div>
+            </dl>
+            <p class="copy__note">En cada proyecto se cruzan cliente, presupuesto, personal, compras, materiales, documentos y costos.</p>
+          </div>
+          <div class="diagram diagram--entities">
+            <p class="diagram__core">Proyecto</p>
+            <ul class="chips" data-net-set="entities" aria-label="Lo que reúne cada proyecto">
+              <li>Cliente</li>
+              <li>Presupuesto</li>
+              <li>Compras</li>
+              <li>Personal</li>
+              <li>Materiales</li>
+              <li>Documentos</li>
+              <li>Costos</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 · PROBLEMA -->
+      <section class="scene scene--sticky" id="problema" data-scene="problema" data-tone="light" style="--len: 3" aria-labelledby="problema-title">
+        <div class="stage">
+          <div class="copy copy--side">
+            <h2 class="display" id="problema-title">SurTec ya genera información. Pero vive en siete lugares distintos.</h2>
+            <p class="lede">
+              Excel, Microsoft 365, correo, cloud, software contable, CAD y mensajería sostienen la operación diaria. Cada
+              herramienta funciona; ninguna conoce al proyecto.
+            </p>
+            <ol class="cascade" aria-label="Cadena de efectos">
+              <li>Información distribuida</li>
+              <li>Consolidaciones manuales</li>
+              <li>Duplicidad</li>
+              <li>Menor trazabilidad</li>
+              <li>Indicadores tardíos</li>
+              <li>Menor capacidad de control</li>
+              <li>Decisiones menos oportunas</li>
+            </ol>
+            <p class="gap-statement">La brecha: <strong>falta de integración de la información alrededor del proyecto.</strong></p>
+          </div>
+          <div class="diagram diagram--tools">
+            <ul class="chips chips--tools" data-net-set="tools" aria-label="Herramientas actuales y dónde queda la información">
+              <li data-sub="presupuesto_PR-014_v7_FINAL(2).xlsx">Excel</li>
+              <li data-sub="Acta_avance_rev3.docx">Microsoft 365</li>
+              <li data-sub="RE: RE: ¿la OC ya está aprobada?">Correo</li>
+              <li data-sub="/Proyectos/2027/varios/escaneos">Cloud</li>
+              <li data-sub="Factura sin proyecto asignado">Contabilidad</li>
+              <li data-sub="plano_tableros_rev4.dwg">CAD</li>
+              <li data-sub="foto_boleta.jpg · 23:47">Mensajería</li>
+            </ul>
+            <p class="diagram__caption">Nombres de archivo y mensajes: ejemplos ilustrativos.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 · PUNTO DE TRANSFORMACIÓN -->
+      <section class="scene scene--sticky scene--turn" id="giro" data-scene="giro" data-tone="dark" style="--len: 2.6" aria-labelledby="giro-title">
+        <div class="stage stage--center">
+          <h2 class="question" id="giro-title" data-words>¿Y si toda la información pudiera entenderse desde un mismo proyecto?</h2>
+          <p class="turn-answer">Una sola vista del proyecto: <span>económica, operativa y documental.</span></p>
+        </div>
+      </section>
+
+      <!-- 5 · SOLUCIÓN -->
+      <section class="scene scene--sticky" id="solucion" data-scene="solucion" data-tone="dark" style="--len: 2.8" aria-labelledby="solucion-title">
+        <div class="stage">
+          <div class="copy copy--side">
+            <h2 class="display" id="solucion-title">Plataforma Integrada de Gestión y Control de Proyectos</h2>
+            <p class="lede">
+              No es un ERP genérico: está diseñada alrededor de cómo trabaja una empresa de ingeniería. Cada módulo registra
+              sobre el mismo proyecto.
+            </p>
+            <ol class="modules" data-net-set="modules" aria-label="Módulos de la plataforma">
+              <li><button type="button">Presupuestos</button><p>Partidas, versiones y aprobación. El presupuesto aprobado fija la línea base económica del proyecto.</p></li>
+              <li><button type="button">Compras</button><p>Proveedor, proyecto, aprobación y recepción. Cada orden de compra alimenta el costo comprometido.</p></li>
+              <li><button type="button">Rendiciones</button><p>Gastos registrados desde oficina o campo, con foto o PDF y OCR asistido. Revisión, observación y aprobación.</p></li>
+              <li><button type="button">Personal / Tareo</button><p>Asistencia, tareo y biometría. Las horas imputables llegan al proyecto como costo laboral.</p></li>
+              <li><button type="button">Almacén</button><p>Entradas, salidas, devoluciones y transferencias por proyecto, con Kardex automático y stock mínimo.</p></li>
+              <li><button type="button">Costos</button><p>Presupuestado frente a ejecutado, con drill-down hasta la operación y el documento de origen.</p></li>
+              <li><button type="button">Documentos</button><p>Cada documento ligado a proyecto, operación, responsable y versión. No una colección de carpetas.</p></li>
+              <li><button type="button">Reportes y BI</button><p>Dashboards, KPIs, presupuesto frente a costo y tendencias sobre datos ya integrados.</p></li>
+              <li><button type="button">CRM</button><p>Clientes, oportunidades y seguimiento comercial. Oportunidad → Presupuesto → Proyecto.</p></li>
+            </ol>
+            <p class="transversal">
+              <strong>Transversales a todos los módulos:</strong> seguridad y auditoría (roles, MFA, bitácora, backups) e
+              integraciones con biometría, software contable, OCR y correo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 · CÓMO FUNCIONA -->
+      <section class="scene scene--paper" id="funcionamiento" data-scene="funcionamiento" data-tone="light" aria-labelledby="flujo-title">
+        <div class="pin pin--flow" style="--len: 3.2">
+          <div class="stage stage--flow">
+            <div class="copy copy--top">
+              <h2 class="display" id="flujo-title">Cada operación conserva su trazabilidad.</h2>
+              <p class="lede">
+                La información nace en la oportunidad comercial, se formaliza en el proyecto, se ejecuta en la operación y
+                llega consolidada a Gerencia.
+              </p>
+            </div>
+            <div class="flow" data-flow>
+              <svg class="flow__wires" aria-hidden="true"></svg>
+              <ol class="flow__nodes" aria-label="Flujo funcional de la plataforma">
+                <li data-node="opp" style="--area: opp">Cliente / Oportunidad</li>
+                <li data-node="crm" style="--area: crm">CRM</li>
+                <li data-node="pre" style="--area: pre">Presupuesto</li>
+                <li data-node="pro" style="--area: pro" class="is-core">Proyecto</li>
+                <li data-node="com" style="--area: com">Compras</li>
+                <li data-node="ren" style="--area: ren">Rendiciones</li>
+                <li data-node="doc" style="--area: doc">Gestión documental</li>
+                <li data-node="per" style="--area: per">Personal / Tareo</li>
+                <li data-node="alm" style="--area: alm">Almacén / Materiales</li>
+                <li data-node="cos" style="--area: cos">Costos por proyecto</li>
+                <li data-node="bi" style="--area: bi">Reportes y BI</li>
+                <li data-node="ger" style="--area: ger">Gerencia</li>
+              </ol>
+            </div>
+            <div class="trace">
+              <p class="trace__title">Del indicador al documento de origen</p>
+              <ol class="trace__chain">
+                <li data-trace="bi"><span>Indicador</span>Desviación de costo · PR-2027-004</li>
+                <li data-trace="cos"><span>Costo</span>S/ 1 475,00 en rendiciones</li>
+                <li data-trace="ren"><span>Operación</span>Rendición R-118</li>
+                <li data-trace="doc"><span>Documento</span>Factura F002-004571</li>
+                <li data-trace="resp"><span>Responsable</span>Supervisor de campo</li>
+                <li data-trace="pro"><span>Proyecto</span>PR-2027-004</li>
+              </ol>
+              <p class="trace__note">Códigos y montos ficticios.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pin pin--ocr" style="--len: 2.4">
+          <div class="stage stage--ocr">
+            <div class="copy copy--side copy--ocr">
+              <h3 class="display display--sub">Una rendición desde campo, en segundos.</h3>
+              <p class="lede">
+                El trabajador fotografía el comprobante desde la PWA. El OCR propone RUC, proveedor, fecha, número, subtotal,
+                IGV y total; <strong>el usuario siempre valida</strong> antes de enviar.
+              </p>
+              <ol class="pipeline" aria-label="Recorrido de la rendición">
+                <li data-step="validar">Validación del usuario</li>
+                <li data-step="revision">Revisión y aprobación</li>
+                <li data-step="costos">Costos por proyecto · PR-2027-004</li>
+              </ol>
+            </div>
+            <div class="ocr" data-ocr>
+              <div class="phone">
+                <div class="phone__bar"><span>Nueva rendición</span><svg class="icon" aria-hidden="true"><use href="#i-scan" /></svg></div>
+                <div class="receipt" aria-label="Comprobante de ejemplo">
+                  <p class="receipt__vendor" data-field="proveedor">Ferretería Industrial del Sur S.A.C.</p>
+                  <p class="receipt__ruc" data-field="ruc">RUC 20601234567</p>
+                  <p class="receipt__type">Factura electrónica</p>
+                  <p class="receipt__num" data-field="numero">F002-004571</p>
+                  <p class="receipt__date" data-field="fecha">Fecha de emisión 14/05/2028</p>
+                  <table class="receipt__items">
+                    <tbody>
+                      <tr><td>Cable THW 10 AWG × 100 m</td><td>780,00</td></tr>
+                      <tr><td>Bandeja portacable 200 mm × 6</td><td>390,00</td></tr>
+                      <tr><td>Conectores y accesorios</td><td>80,00</td></tr>
+                    </tbody>
+                  </table>
+                  <dl class="receipt__totals">
+                    <div data-field="subtotal"><dt>Op. gravada</dt><dd>S/ 1 250,00</dd></div>
+                    <div data-field="igv"><dt>IGV 18 %</dt><dd>S/ 225,00</dd></div>
+                    <div data-field="total"><dt>Importe total</dt><dd>S/ 1 475,00</dd></div>
+                  </dl>
+                  <span class="receipt__scan" aria-hidden="true"></span>
+                </div>
+              </div>
+              <form class="ocr-form" aria-label="Datos propuestos por OCR" onsubmit="return false">
+                <p class="ocr-form__title">Datos propuestos por OCR</p>
+                <label data-out="ruc"><span>RUC</span><output>20601234567</output></label>
+                <label data-out="proveedor"><span>Proveedor</span><output>Ferretería Industrial del Sur S.A.C.</output></label>
+                <label data-out="fecha"><span>Fecha</span><output>14/05/2028</output></label>
+                <label data-out="numero"><span>Número</span><output>F002-004571</output></label>
+                <label data-out="subtotal"><span>Subtotal</span><output>S/ 1 250,00</output></label>
+                <label data-out="igv"><span>IGV</span><output>S/ 225,00</output></label>
+                <label data-out="total"><span>Total</span><output>S/ 1 475,00</output></label>
+                <p class="ocr-form__project">Proyecto <strong>PR-2027-004</strong> · Infraestructura de red</p>
+                <button class="btn btn--primary btn--block ocr-form__submit" type="button" tabindex="-1">
+                  <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>
+                  Validar y enviar
+                </button>
+                <p class="ocr-form__note">Comprobante y datos ficticios.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 · TECNOLOGÍA -->
+      <section class="scene scene--night" id="tecnologia" data-scene="tecnologia" data-tone="dark" aria-labelledby="tec-title">
+        <div class="pin pin--arch" style="--len: 2.6">
+          <div class="stage stage--arch">
+            <div class="copy copy--side">
+              <h2 class="display" id="tec-title">Cloud-first, modular y segura desde el diseño.</h2>
+              <p class="lede">
+                Una arquitectura proporcional al tamaño de SurTec: aplicación web y PWA para oficina y campo, monolito modular
+                con API y una base PostgreSQL central.
+              </p>
+              <ol class="layers" aria-label="Capas de la arquitectura">
+                <li><strong>Usuarios</strong><span>Gerencia · Administración · Comercial · Proyectos · Logística · Campo</span></li>
+                <li><strong>Acceso web / PWA</strong><span>Navegador · laptop · tablet · smartphone</span></li>
+                <li><strong>Plataforma</strong><span>Módulos integrados · frontend responsive · backend con API</span></li>
+                <li><strong>API e integraciones</strong><span>OCR · biometría · software contable · correo</span></li>
+                <li><strong>Datos</strong><span>PostgreSQL · almacenamiento documental · datos maestros</span></li>
+                <li><strong>Cloud</strong><span>Producción · pruebas · almacenamiento · monitoreo</span></li>
+              </ol>
+            </div>
+            <div class="stack" data-stack aria-hidden="true">
+              <div class="stack__iso">
+                <div class="plate" style="--i: 5"><span>Usuarios</span></div>
+                <div class="plate" style="--i: 4"><span>Web / PWA</span></div>
+                <div class="plate plate--core" style="--i: 3"><span>Plataforma</span></div>
+                <div class="plate" style="--i: 2"><span>API e integraciones</span></div>
+                <div class="plate" style="--i: 1"><span>Datos</span></div>
+                <div class="plate" style="--i: 0"><span>Cloud</span></div>
+              </div>
+              <div class="stack__band">
+                <strong>Seguridad transversal</strong>
+                <span>HTTPS/TLS · MFA · roles y permisos · auditoría · backups · recuperación · monitoreo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8 · IMPACTO -->
+      <section class="scene scene--paper scene--impact" id="impacto" data-scene="impacto" data-tone="light" aria-labelledby="impacto-title">
+        <div class="wrap">
+          <div class="copy copy--top">
+            <h2 class="display" id="impacto-title">Lo que la integración debe lograr al 2030.</h2>
+            <p class="lede">Son <strong>metas del PETI, no resultados actuales</strong>. Las líneas base se registran al inicio de cada fase.</p>
+          </div>
+          <ol class="goals" aria-label="Metas principales">
+            <li class="goal" style="--target: 90" data-dir="up">
+              <p class="goal__value"><span class="goal__op">≥</span><span data-count="90">90</span><span class="goal__unit">%</span></p>
+              <p class="goal__label">de proyectos activos integrados en la plataforma</p>
+              <div class="ruler" aria-hidden="true"><i></i></div>
+            </li>
+            <li class="goal" style="--target: 50" data-dir="up">
+              <p class="goal__value"><span class="goal__op">≥</span><span data-count="50">50</span><span class="goal__unit">%</span></p>
+              <p class="goal__label">de reducción del tiempo de consolidación económica</p>
+              <div class="ruler" aria-hidden="true"><i></i></div>
+            </li>
+            <li class="goal" style="--target: 95" data-dir="up">
+              <p class="goal__value"><span class="goal__op">≥</span><span data-count="95">95</span><span class="goal__unit">%</span></p>
+              <p class="goal__label">de trazabilidad documental en procesos clave</p>
+              <div class="ruler" aria-hidden="true"><i></i></div>
+            </li>
+            <li class="goal" style="--target: 80" data-dir="up">
+              <p class="goal__value"><span class="goal__op">≥</span><span data-count="80">80</span><span class="goal__unit">%</span></p>
+              <p class="goal__label">de usuarios activos en la plataforma integrada</p>
+              <div class="ruler" aria-hidden="true"><i></i></div>
+            </li>
+          </ol>
+          <ul class="goals-minor" aria-label="Metas complementarias">
+            <li><strong>≤ 8 %</strong> de desviación presupuestaria controlada</li>
+            <li><strong>100 %</strong> de repositorios críticos respaldados</li>
+            <li><strong>≥ 90 %</strong> del personal objetivo capacitado</li>
+          </ul>
+          <div class="ods">
+            <article>
+              <h3><span>ODS 9</span> Industria, innovación e infraestructura</h3>
+              <p>Infraestructura digital integrada, innovación en la gestión y capacidad tecnológica empresarial.</p>
+            </article>
+            <article>
+              <h3><span>ODS 8</span> Trabajo decente y crecimiento económico</h3>
+              <p>Mayor productividad, menos reprocesos, mejor gestión de recursos y desarrollo de capacidades digitales.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 · ROADMAP -->
+      <section class="scene scene--paper scene--road" id="ruta" data-scene="ruta" data-tone="light" aria-labelledby="ruta-title">
+        <div class="pin pin--road" style="--len: 3">
+          <div class="stage stage--road">
+            <div class="copy copy--top copy--road">
+              <h2 class="display" id="ruta-title">Cuatro años, una transformación progresiva.</h2>
+              <p class="lede">Primero las bases, luego la operación, después los datos y, al final, la madurez. Cada etapa habilita la siguiente.</p>
+            </div>
+            <div class="road" data-road>
+              <div class="road__line" aria-hidden="true"><i></i></div>
+              <ol class="road__track">
+                <li class="year" style="--amount: 102300">
+                  <p class="year__n">2027</p>
+                  <h3>Preparar e integrar</h3>
+                  <p class="year__items">Gobierno TI · Arquitectura · Seguridad · Datos maestros · Plataforma base</p>
+                  <p class="year__money"><span class="bar" aria-hidden="true"><i></i></span>S/ 102 300</p>
+                </li>
+                <li class="year" style="--amount: 219461">
+                  <p class="year__n">2028</p>
+                  <h3>Digitalizar la operación</h3>
+                  <p class="year__items">Proyectos · Presupuestos · Compras · Rendiciones · Personal/Tareo · Costos · Gestión documental</p>
+                  <p class="year__money"><span class="bar" aria-hidden="true"><i></i></span>S/ 219 461 <small>Go-Live principal</small></p>
+                </li>
+                <li class="year" style="--amount: 141350">
+                  <p class="year__n">2029</p>
+                  <h3>Expandir y explotar datos</h3>
+                  <p class="year__items">Almacén · Materiales · Biometría · BI · CRM · Integraciones</p>
+                  <p class="year__money"><span class="bar" aria-hidden="true"><i></i></span>S/ 141 350</p>
+                </li>
+                <li class="year" style="--amount: 67650">
+                  <p class="year__n">2030</p>
+                  <h3>Optimizar y madurar</h3>
+                  <p class="year__items">Analítica avanzada · Automatización · Mejora continua · Evaluación del PETI · Madurez tecnológica</p>
+                  <p class="year__money"><span class="bar" aria-hidden="true"><i></i></span>S/ 67 650</p>
+                </li>
+              </ol>
+            </div>
+            <p class="invest">
+              Inversión referencial <strong>S/ 531 000</strong> en cuatro años, con 10 % de contingencia. Estimación académica que se
+              actualiza con cotizaciones antes de cada fase.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 · MOCKUP / CIERRE -->
+      <section class="scene scene--close" id="plataforma" data-scene="plataforma" data-tone="dark" aria-labelledby="cierre-title">
+        <div class="wrap">
+          <div class="copy copy--center">
+            <h2 class="display" id="cierre-title">La estrategia ya tiene una representación tangible.</h2>
+            <p class="lede">
+              Un mockup navegable muestra la visión TO-BE: panel general, trazabilidad del indicador al documento, rendición
+              móvil, compra y Kardex, asistencia y costo laboral.
+            </p>
+          </div>
+
+          <figure class="browser" data-browser>
+            <div class="browser__bar">
+              <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="browser__url">jeanestrada-2004.github.io/Mockup-ERP/surtec-peti</span>
+              <button class="browser__try" type="button" data-try>
+                <svg class="icon" aria-hidden="true"><use href="#i-play" /></svg>
+                Probar aquí
+              </button>
+            </div>
+            <div class="browser__view">
+              <picture>
+                <source media="(max-width: 640px)" srcset="/src/assets/mockup/panel-movil.webp" />
+                <img src="/src/assets/mockup/panel-general.webp" alt="Panel general del mockup de la plataforma SurTec con indicadores, aprobaciones pendientes y trazabilidad del costo del proyecto PR-2027-001." width="1680" height="1050" loading="lazy" />
+              </picture>
+            </div>
+          </figure>
+
+          <div class="cta">
+            <a class="btn btn--primary btn--hero" href="https://jeanestrada-2004.github.io/Mockup-ERP/surtec-peti/index.html" target="_blank" rel="noopener">
+              Explorar plataforma
+              <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+            </a>
+            <figure class="qr">
+              <img src="/src/assets/qr-mockup.svg" alt="Código QR para abrir el mockup navegable" width="132" height="132" />
+              <figcaption>Escanéalo para abrirlo en tu celular.</figcaption>
+            </figure>
+          </div>
+          <p class="cta__note">Prototipo frontend con datos ficticios: no incluye backend, OCR ni biometría productivos.</p>
+
+          <div class="finale">
+            <p class="finale__line">Una plataforma. Un proyecto. <span>Toda la información conectada.</span></p>
+            <img class="finale__logo" src="/src/assets/brand/logo-white.png" alt="SurTec Ingeniería y Tecnología" width="520" height="458" loading="lazy" />
+          </div>
+        </div>
+
+        <footer class="titleblock" aria-label="Créditos académicos">
+          <dl>
+            <div class="titleblock__wide"><dt>Proyecto</dt><dd>Plan Estratégico de Tecnologías de Información · SurTec Ingeniería y Tecnología S.A.C.</dd></div>
+            <div><dt>Horizonte</dt><dd>2027–2030</dd></div>
+            <div><dt>Curso</dt><dd>Planeamiento Estratégico de Tecnologías de Información</dd></div>
+            <div><dt>Universidad</dt><dd>Universidad de San Martín de Porres · Filial Sur</dd></div>
+            <div><dt>Programa</dt><dd>Ingeniería de Computación y Sistemas</dd></div>
+            <div><dt>Docente</dt><dd>Mg. Ing. Norman Patrick Harvey Arce</dd></div>
+            <div><dt>Estudiante</dt><dd>Jean Carlos Estrada Barrientos</dd></div>
+            <div><dt>Nota</dt><dd>Empresa ficticia con fines académicos</dd></div>
+          </dl>
+        </footer>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

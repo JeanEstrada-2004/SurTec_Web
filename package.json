@@ -1,45 +1,29 @@
 {
-  "name": "surtec-scrollytelling",
-  "version": "0.1.0",
+  "name": "surtec-peti-landing",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "description": "Landing scrollytelling: Transformación Digital para la Gestión Integral de Proyectos en SurTec (PETI 2027–2030).",
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=20"
   },
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build",
-    "build:pages": "next build",
-    "start": "vinext start",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern out --ignore-pattern work",
-    "typecheck": "tsc --noEmit"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "assets": "node scripts/prepare-assets.mjs",
+    "shots": "node scripts/screenshots.mjs"
   },
   "dependencies": {
-    "@fontsource-variable/manrope": "^5.3.0",
-    "gsap": "^3.15.0",
-    "next": "^16.3.5",
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
-    "three": "^0.186.0"
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/montserrat": "^5.3.0",
+    "gsap": "^3.15.1",
+    "three": "^0.170.0"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.37.1",
-    "@cloudflare/workers-types": "4.20260515.1",
-    "@openai/sites-vite-plugin": "^0.1.0 || ^0.2.0",
-    "@tailwindcss/postcss": "4.2.1",
-    "@types/node": "22.19.19",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "@types/three": "^0.186.0",
-    "@vitejs/plugin-react": "6.0.2",
-    "@vitejs/plugin-rsc": "0.5.26",
-    "eslint": "9.39.4",
-    "eslint-config-next": "16.2.6",
-    "react-server-dom-webpack": "19.2.6",
-    "tailwindcss": "4.2.1",
-    "typescript": "5.9.3",
-    "vinext": "1.0.0-beta.3",
-    "vite": "8.0.13",
-    "wrangler": "4.92.0"
-  },
-  "type": "module"
+    "playwright-core": "^1.65.0",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5",
+    "vite": "^6.4.6"
+  }
 }
